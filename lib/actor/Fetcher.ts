@@ -8,7 +8,8 @@ export default class Fetcher {
   private urls = {
   // Fetcher.ts 파일 내의 schedules URL
 schedules: () =>
-  // NOTE: '20251031' 대신 감시하고자 하는 실제 공연 날짜(YYYYMMDD)로 변경해야 합니다.
+ schedules: () =>
+  // list.json -> timelist.json으로 변경 및 perfDay 파라미터 추가
   `https://tktapi.melon.com/api/product/schedule/timelist.json?prodId=${this.config.productId}&perfDay=20251031&pocCode=SC0002&perfTypeCode=GN0001&sellTypeCode=ST0001&v=1`,
     seats: (scheduleNo: number) =>
       `https://m.ticket.melon.com/tktapi/product/seat/seatMapList.json?v=1&prodId=${this.config.productId}&scheduleNo=${scheduleNo}&callback=getSeatListCallBack`,
